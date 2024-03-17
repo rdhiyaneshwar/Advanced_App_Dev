@@ -3,23 +3,34 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'; 
 import Navbar from './components/User/Navbar';
 import Footer from './components/User/Footer';
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
+import styles from './style';
+import Stats from './components/Admin/Stats';
 
-function App() {
-  return (
-    <>
-      <Router>
+const App = () =>  (
+  <div className="bg-primary w-full overflow-hidden">
+
+    <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.boxWidth}`}> 
         <Navbar/>
-        <Routes>
-          <Route path="/home" element={<Home />} /> 
-          <Route path="/login" component={<LoginPage/>} />
-          <Route path="/signup" component={<SignupPage/>} />
-        </Routes>
-        <Footer/>
-      </Router>
-    </>
-  );
-}
+      </div>
+    </div>
+
+    <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.boxWidth}`}> 
+        <Home/>
+      </div>
+    </div>
+
+    <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.boxWidth}`}> 
+        <Stats/>
+      </div>
+    </div>
+  </div>
+
+  
+);
+
+
 
 export default App;
