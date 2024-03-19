@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { NavLink } from 'react-router-dom'
 import { close, logo, menu } from "../../assets/images";
 import { navLinks } from "../../constants";
 
@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
-      <img src={logo} alt="hoobank" className="w-[124px] h-[32px]" />
+      <img src={logo} alt="coursequest" className="w-[124px] h-[32px]" />
 
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {navLinks.map((nav, index) => (
@@ -20,7 +20,10 @@ const Navbar = () => {
             } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
             onClick={() => setActive(nav.title)}
           >
-            <a href={`#${nav.id}`}>{nav.title}</a>
+            <NavLink to={nav.id} className="border-2 border-transparent p-5">
+                    {nav.title}
+                  </NavLink>
+            
           </li>
         ))}
       </ul>

@@ -1,46 +1,43 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home'; 
 import Navbar from './components/User/Navbar';
 import Footer from './components/User/Footer';
-import styles from './style';
-import Stats from './components/Admin/Stats';
-import TermsAndConditions from './components/Admin/TermsAndConditions';
-import Login from './components/Auth/Login';
-import Signup from './components/Auth/Signup';
 import Loader from './components/User/Loader';
+import AdminDashboard from './components/Admin/AdminDashboard';
 
-const App = () =>  (
+// Lazy load components
+const Home = React.lazy(() => import('./pages/Home'));
+const Stats = React.lazy(() => import('./components/Admin/Stats'));
+const TermsAndConditions = React.lazy(() => import('./components/Admin/TermsAndConditions'));
+const Login = React.lazy(() => import('./components/Auth/Login'));
+const Signup = React.lazy(() => import('./components/Auth/Signup'));
+const Plans = React.lazy(() => import('./components/Admin/Plans'));
+const UserDashboard = React.lazy(() => import('./components/User/UserDashboard'));
+
+
+const App = () => (
   <Router>
-    <Suspense fallback={<Loader />}>
-  <div className="bg-primary w-full overflow-hidden">
-
-    <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-      <div className={`${styles.boxWidth}`}> 
-        <Navbar/>
+    <div className="bg-primary w-full overflow-hidden">
+      <div>
+        <Navbar />
+      </div>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/plans" element={<Plans />} />
+          <Route path="/userdashboard" element={<UserDashboard userName="Dhiyanesh" userEmail="rdhiyaneshwar04@gmail.com" />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/admindashboard" element={<AdminDashboard />} />
+        </Routes>
+      </Suspense>
+      <div>
+        <Footer />
       </div>
     </div>
-
-    <Routes>
-      
-        <Route path="/" element={<Home />} />
-        <Route path="/stats" element={<Stats />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-      </Routes>
-
-    <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-      <div className={`${styles.boxWidth}`}> 
-        <Footer/>
-      </div>
-    </div>
-
-  </div>
-  </Suspense>
   </Router>
 );
-
-
 
 export default App;

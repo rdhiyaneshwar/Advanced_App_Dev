@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Loader = () => {
+const Loading = () => {
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="flex space-x-2">
@@ -9,8 +9,8 @@ const Loader = () => {
         <div className="w-4 h-4 bg-yellow-500 rounded-full animate-bounce" style={{ animationDelay: '200ms' }}></div>
         <div className="w-4 h-4 bg-red-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
       </div>
-    </div>  
+    </div>
   );
 };
 
-export default Loader;
+export default Loading;
