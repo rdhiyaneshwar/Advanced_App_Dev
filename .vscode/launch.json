@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CoursequestApplication<coursequest>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.studentinquiry.coursequest.CoursequestApplication",
+            "projectName": "coursequest",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

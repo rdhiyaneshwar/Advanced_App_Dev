@@ -2,6 +2,7 @@
   import { discount, robot } from "../assets/images";
   import GetStarted from "../components/User/GetStarted";
 import Stats from "../components/Admin/Stats";
+import CourseList from "../components/Admin/CourseList";
 
   const Home = () => {
     return (
@@ -31,6 +32,7 @@ import Stats from "../components/Admin/Stats";
           <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
           Unlimited access to 7,000+ world-class courses, hands-on projects, and job-ready certificate programs—all included in your subscription
           </p>
+          
         </div>
 
         <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
@@ -44,8 +46,9 @@ import Stats from "../components/Admin/Stats";
         </div>
 
         <div className={`ss:hidden ${styles.flexCenter}`}>
-          <GetStarted />
+          <CourseList />
         </div>
+        
         <div className={`ss:hidden ${styles.flexCenter}`}>
           <Stats />
         </div>
